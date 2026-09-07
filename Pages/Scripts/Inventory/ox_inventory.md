@@ -1,10 +1,8 @@
 # ox_inventory
 
-`ox_inventory` is an inventory system for FiveM.
+A slot-based FiveM inventory system with item metadata, shops, stashes, crafting, weapons, and vehicle storage.
 
-The resource includes item metadata, stashes, shops, crafting, weapon support, vehicle storage, and framework integrations.
-
-> SantosCAD links to the source project. SantosCAD does not own, maintain, or distribute `ox_inventory`.
+> SantosDB links to the source project. SantosDB does not own, maintain, or distribute this resource.
 > {.is-info}
 
 ---
@@ -19,8 +17,9 @@ The resource includes item metadata, stashes, shops, crafting, weapon support, v
 | **Category** | Inventory        |
 | **Game**     | FiveM            |
 | **Price**    | Free             |
+| **License**  | GPL-3.0 or later |
 | **Source**   | GitHub           |
-| **License**  | GPL 3.0 or later |
+| **Status**   | Active           |
 | {.dense}     |                  |
 
 ---
@@ -29,76 +28,47 @@ The resource includes item metadata, stashes, shops, crafting, weapon support, v
 
 ### Overview
 
-`ox_inventory` provides a slot based inventory system for FiveM servers.
+`ox_inventory` is a slot-based inventory system for FiveM.
 
-The resource supports:
+Features include:
 
-* Item metadata
-* Player inventories
-* Stashes
-* Shops
-* Crafting
-* Vehicle trunks
-* Vehicle gloveboxes
-* Weapons
-* Weapon attachments
-* Ammo
+* Per-slot item metadata
+* Weapons as inventory items
+* Weapon attachments and ammunition
 * Item durability
-* Inventory drops
-* Dumpster loot
-* Vehicle loot
-* Group restrictions
-* License restrictions
+* Shops
+* Stashes
+* Crafting
+* Vehicle gloveboxes and trunks
+* Containers
+* Server-side validation
+* Inventory logging
+* Synchronised inventory access
 
 ### Requirements
 
-Install these resources before `ox_inventory`:
+Required dependencies:
 
-```text
-oxmysql
-ox_lib
-```
+* `oxmysql`
+* `ox_lib`
 
-Optional:
+Optional dependency:
 
-```text
-ox_target
-```
-
-`ox_target` provides target interactions for supported shops, stashes, and other inventory interactions.
+* `ox_target`
 
 ### Framework Support
 
-Supported framework settings include:
+Official framework support includes:
 
-```text
-ox
-esx
-qbx
-nd
-```
+| Framework   | Support   |
+| ----------- | --------- |
+| **ox_core** | Supported |
+| **ESX**     | Supported |
+| **Qbox**    | Supported |
+| **ND Core** | Supported |
+| {.dense}    |           |
 
-Set your framework in `server.cfg`.
-
-**Qbox**
-
-```cfg
-setr inventory:framework "qbx"
-```
-
-**ESX**
-
-```cfg
-setr inventory:framework "esx"
-```
-
-**ox_core**
-
-```cfg
-setr inventory:framework "ox"
-```
-
-> A framework without a supported bridge requires code and database changes.
+> Frameworks with their own inventory, item, or weapon systems may have compatibility issues when replacing their built-in inventory.
 > {.is-warning}
 
 ---
@@ -109,18 +79,17 @@ setr inventory:framework "ox"
 
 * [ ] Install `oxmysql`
 * [ ] Install `ox_lib`
-* [ ] Install your framework
-* [ ] Install `ox_target` if used
-* [ ] Download `ox_inventory`
-* [ ] Place the resource inside your resources folder
-* [ ] Set the inventory framework
+* [ ] Install your supported framework
+* [ ] Download the latest `ox_inventory` release
+* [ ] Place `ox_inventory` in your resources folder
+* [ ] Configure the inventory convars
 * [ ] Check your resource start order
-* [ ] Restart the server
+* [ ] Start the server
 * [ ] Check the server console for errors
 
 ### Resource Order
 
-Use this order as a base:
+Use a logical resource order so dependencies start before `ox_inventory`.
 
 ```cfg
 start oxmysql
@@ -130,241 +99,90 @@ start ox_target
 start ox_inventory
 ```
 
-Replace `framework` with your framework resource.
+Replace `framework` with your framework resource, such as `ox_core`, `es_extended`, or `qbx_core`.
 
-Examples:
-
-```text
-ox_core
-es_extended
-qbx_core
-```
-
-> Start `ox_inventory` after its dependencies and framework.
-> {.is-success}
+`ox_target` is optional.
 
 ---
 
-## Configuration {.tabset}
+## Configuration
 
-### General
+`ox_inventory` uses FiveM convars for configuration.
 
-`ox_inventory` uses convars in `server.cfg`.
-
-Example:
+Set your framework with `inventory:framework`.
 
 ```cfg
-setr inventory:framework "qbx"
-
-setr inventory:slots 50
-setr inventory:weight 30000
-
-setr inventory:target true
-
-setr inventory:keys ["F2", "K", "TAB"]
-
-setr inventory:weaponanims true
-setr inventory:itemnotify true
-setr inventory:weaponnotify true
+setr inventory:framework "esx"
 ```
 
-### Slots
+Supported framework values documented by Overextended are:
 
-Set the number of player inventory slots:
+```text
+ox
+esx
+qbx
+nd
+```
+
+Basic inventory settings include:
 
 ```cfg
 setr inventory:slots 50
-```
-
-### Weight
-
-Inventory weight uses grams.
-
-```cfg
 setr inventory:weight 30000
+setr inventory:dropslots 50
+setr inventory:dropweight 30000
 ```
 
-`30000` equals 30 kg.
-
-### Target
-
-Enable `ox_target` support:
+Enable integrated target support when required:
 
 ```cfg
 setr inventory:target true
 ```
 
-### Keys
-
-Set inventory keys:
-
-```cfg
-setr inventory:keys ["F2", "K", "TAB"]
-```
-
-### Notifications
-
-Enable item notifications:
-
-```cfg
-setr inventory:itemnotify true
-```
-
-Enable weapon notifications:
-
-```cfg
-setr inventory:weaponnotify true
-```
-
----
-
-## Items
-
-Item definitions are stored in:
-
-```text
-ox_inventory/data/items.lua
-```
-
-A basic item might use:
-
-```lua
-['water'] = {
-    label = 'Water',
-    weight = 500,
-    stack = true,
-    close = true,
-    description = 'A bottle of water'
-}
-```
-
-Common fields include:
-
-| Field         | Purpose                            |
-| ------------- | ---------------------------------- |
-| `label`       | Item name shown to players         |
-| `weight`      | Item weight                        |
-| `stack`       | Allows items to share one slot     |
-| `close`       | Closes inventory after use         |
-| `description` | Item description                   |
-| `consume`     | Amount consumed                    |
-| `degrade`     | Controls item degradation          |
-| `decay`       | Controls removal after degradation |
-| {.dense}      |                                    |
-
-> Keep custom items in line with the source documentation. Wrong item data often causes resource errors.
-> {.is-warning}
-
----
-
-## Known Issues {.tabset}
-
-### UI Does Not Load
-
-Check how you downloaded the resource.
-
-The GitHub source does not include every built web file used by a release package.
-
-Use an official release when you do not plan to build the web interface yourself.
-
-> If the inventory opens with no interface, check the browser build before changing Lua code.
-> {.is-warning}
-
-### Missing Export
-
-A missing export error often points to resource order or startup failure.
-
-Check:
-
-* [ ] `ox_inventory` started
-* [ ] `ox_lib` started
-* [ ] `oxmysql` started
-* [ ] Your framework started
-* [ ] The calling resource starts after `ox_inventory`
-* [ ] The export name exists
-
-Check the first error in your server console.
-
-Do not focus on later errors before fixing the first startup failure.
-
-### Inventories Do Not Save
-
-Inventory data uses scheduled saves.
-
-txAdmin restart events trigger inventory saving.
-
-For a manual shutdown, use:
-
-```text
-saveinv
-```
-
-> Run `saveinv` before a manual shutdown when you need to force an inventory save.
+> Check the official documentation before copying a complete configuration. Available convars and defaults can change between releases.
 > {.is-info}
-
-### Framework Conflicts
-
-Framework inventory systems might conflict with `ox_inventory`.
-
-Check for:
-
-* Inventory resources
-* Weapon systems
-* Item systems
-* Money item systems
-* Shop systems
-* Stash systems
-
-> Do not run two inventory systems for the same player inventory.
-> {.is-danger}
 
 ---
 
 ## Compatibility
 
-| System           | Support              |
-| ---------------- | -------------------- |
-| FiveM            | Supported            |
-| ox_core          | Supported            |
-| ESX              | Supported            |
-| Qbox             | Supported            |
-| ND               | Supported            |
-| Custom Framework | Requires bridge work |
-| ox_target        | Optional             |
-| {.dense}         |                      |
+| Component     | Compatibility |
+| ------------- | ------------- |
+| **FiveM**     | Yes           |
+| **ox_core**   | Supported     |
+| **ESX**       | Supported     |
+| **Qbox**      | Supported     |
+| **ND Core**   | Supported     |
+| **ox_lib**    | Required      |
+| **oxmysql**   | Required      |
+| **ox_target** | Optional      |
+| {.dense}      |               |
+
+### Framework Incompatibilities
+
+Frameworks with built-in inventory, item, or weapon systems are expected to have compatibility issues.
+
+Money represented as an inventory item can also conflict with framework banking or account systems.
+
+Unsupported frameworks require a custom bridge and database references.
 
 ---
 
 ## Links
 
-### Official Links {.tabset}
-
-#### Documentation
-
-[Open ox_inventory Documentation](https://overextended.dev/docs/ox_inventory)
-
-#### GitHub
-
-[Open ox_inventory Repository](https://github.com/overextended/ox_inventory)
-
-#### Releases
-
-[Open ox_inventory Releases](https://github.com/overextended/ox_inventory/releases)
+* [Official Documentation](https://overextended.dev/docs/ox_inventory)
+* [GitHub Repository](https://github.com/overextended/ox_inventory)
+* [Latest Release](https://github.com/overextended/ox_inventory/releases/latest)
+* [Overextended](https://overextended.dev/)
 
 ---
 
 ## Before You Install
 
-* [ ] Read the source documentation
-* [ ] Check framework support
-* [ ] Install required dependencies
-* [ ] Check your start order
-* [ ] Back up your database
-* [ ] Test on a development server
-* [ ] Check other resources for inventory dependencies
+> Replacing a framework's built-in inventory can cause compatibility errors. Review your framework and resource compatibility before migrating.
+> {.is-warning}
 
-> Back up your server and database before replacing an existing inventory system.
-> {.is-danger}
+Back up your server and database before replacing an existing inventory system.
 
 ---
 
@@ -372,6 +190,6 @@ Check for:
 
 Created by **Overextended** and project contributors.
 
-SantosCAD provides resource information and links to source pages.
+SantosDB provides resource information and source references.
 
 Resource rights belong to the project authors and rights holders.

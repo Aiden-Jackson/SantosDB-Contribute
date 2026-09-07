@@ -1,155 +1,130 @@
-# <i class="fas fa-boxes-stacked"></i> SantosCAD
+# SantosDB
 
-Find FiveM resources without searching through forums, Discord servers, GitHub repositories, and storefronts.
+Find FiveM resources from their official sources.
 
-SantosCAD organizes **scripts, EUP, vehicles, MLOs, YMAPs, props, weapons, developer tools, and other FiveM resources** in one place.
+SantosDB is a FiveM resource directory affiliated with **SantosMods.dev**. Browse scripts, EUP, vehicles, MLOs, YMAPs, props, weapons, tools, libraries, and other resources.
 
-> SantosCAD does not host or claim ownership of listed resources. We link users to the original source whenever possible.
-
----
-
-## <i class="fas fa-magnifying-glass"></i> Browse Resources
-
-Explore resources by category:
-
-* Scripts
-* EUP
-* Vehicles
-* MLOs
-* YMAPs
-* Props
-* Weapons
-* Developer Tools
-* Server Resources
-
-Each listing is structured to help you find the information you need before installing a resource.
+> SantosDB provides resource information and links to official or authorized sources. SantosDB does not own, maintain, or distribute third-party resources.
+> {.is-info}
 
 ---
 
-## <i class="fas fa-circle-info"></i> What You Will Find
+## Browse Resources
 
-SantosCAD listings include information such as:
+| Category     | What You Will Find                                                                 |
+| ------------ | ---------------------------------------------------------------------------------- |
+| **Scripts**  | Framework resources, jobs, systems, UI, administration tools, and gameplay scripts |
+| **EUP**      | Clothing, uniforms, and EUP packs                                                  |
+| **Vehicles** | FiveM vehicle resources and vehicle packs                                          |
+| **MLOs**     | Custom interiors and mapped locations                                              |
+| **YMAPs**    | Map additions and world edits                                                      |
+| **Props**    | Custom props and related assets                                                    |
+| **Weapons**  | Weapon resources and related assets                                                |
+| **Tools**    | Development, server management, and utility tools                                  |
+| **Other**    | FiveM resources that do not fit another category                                   |
+| {.dense}     |                                                                                    |
 
-* Original creator
-* Official source
-* Download links
+---
+
+## What SantosDB Provides
+
+SantosDB pages are designed to help you check a resource before installing it.
+
+Where verified from official sources, listings may include:
+
+* Creator information
 * Framework support
 * Dependencies
-* Installation steps
-* Configuration notes
+* Price
+* License
+* Installation instructions
+* Configuration information
+* Compatibility
 * Known issues
-* Documentation
-* Support links
+* Official documentation
+* GitHub, Cfx.re, Tebex, or creator links
 
-We focus on providing useful information without replacing the documentation provided by the original developer.
-
----
-
-## <i class="fas fa-link"></i> Original Sources
-
-SantosCAD links directly to original and authorized sources.
-
-We do not support leaked, reuploaded, cracked, or unauthorized copies of resources.
-
-Resource ownership remains with the original creator.
+> Information that cannot be verified is not guessed.
+> {.is-warning}
 
 ---
 
-## <i class="fas fa-code-branch"></i> Contribute
+## Official Sources Only
 
-SantosCAD accepts community contributions.
+SantosDB uses official and authorized sources.
 
-You can help us:
+Preferred sources include:
 
-* Add new resources
-* Update outdated listings
-* Fix incorrect information
-* Add known issues
-* Improve installation instructions
-* Update broken source links
+1. Official project documentation
+2. Official GitHub repositories
+3. Official release pages
+4. Official Cfx.re releases
+5. Official Tebex pages
+6. Official creator websites
+7. Official support documentation
 
-To contribute:
-
-1. Fork the SantosCAD repository.
-2. Make your changes in your fork.
-3. Review your changes for accuracy.
-4. Submit a pull request.
-5. Our team will review the contribution before merging it.
-
-Please use official sources when adding or updating resource information.
-
-> Pull requests containing leaked, unauthorized, or misleading resource links will not be accepted.
+SantosDB does not list leak sites, cracked resources, unauthorized mirrors, stolen content, or paid-resource bypasses.
 
 ---
 
-## <i class="fas fa-user-pen"></i> Resource Owners
+## Find the Right Resource
 
-If you own a resource listed on SantosCAD, you can request changes to its page.
+Use categories and tags to narrow your search.
 
-You can also submit changes through our repository by opening a pull request.
+Listings may use tags for:
 
-Contact the SantosCAD team if:
-
-* The creator information is wrong.
-* An official link changed.
-* A listing contains outdated information.
-* You want a resource removed.
-* You want to provide updated documentation.
+* Frameworks such as `qbox`, `qbcore`, `esx`, and `standalone`
+* Resource types such as `script`, `library`, `vehicle`, and `mlo`
+* Pricing such as `free` and `paid`
+* Sources such as `github`, `tebex`, and `cfx-re`
+* Features such as `inventory`, `police`, `housing`, `vehicles`, `ui`, and `developer-tool`
 
 ---
 
-## <i class="fas fa-plus"></i> Add a Resource
+## Contribute to SantosDB
 
-Know a FiveM resource that should be listed?
+SantosDB accepts community contributions.
 
-Fork our repository, create the listing, and submit a pull request.
+* [ ] Fork the SantosDB repository
+* [ ] Add or update the resource page
+* [ ] Verify information against official sources
+* [ ] Check spelling and grammar
+* [ ] Check Wiki.js formatting
+* [ ] Check the path and tags
+* [ ] Commit your changes
+* [ ] Submit a pull request
 
-Include:
-
-* Resource name
-* Creator
-* Resource type
-* Official source
-* Documentation
-* Framework support
-* Requirements
-* Installation information
-* Known issues, if documented
-
-Do not submit mirrors or unauthorized downloads.
+> Contributions must use official or authorized sources. Submissions containing leak links, cracked resources, unauthorized mirrors, stolen content, paid-resource bypasses, or unsupported claims should not be accepted.
+> {.is-warning}
 
 ---
 
-## <i class="fas fa-shield-halved"></i> Listing Policy
+## Resource Owners
 
-SantosCAD is a discovery platform.
+Resource owners may request:
 
-A listing does not mean SantosCAD:
+* Corrections
+* Link updates
+* Creator updates
+* Listing review
+* Removal
 
-* Owns the resource.
-* Maintains the resource.
-* Endorses the resource.
-* Provides support for the resource.
-* Guarantees compatibility or functionality.
-
-Always review the original resource documentation before installing it on your server.
+SantosDB is an information directory. Support for third-party resources remains with their respective creators and support channels.
 
 ---
 
-## <i class="fas fa-circle-question"></i> About SantosCAD
+## About SantosDB
 
-SantosCAD is a FiveM resource catalog built to make community resources easier to find and understand.
+**SantosDB** is affiliated with **SantosMods.dev** and focuses on FiveM resource discovery and documentation.
 
-Our goal is to provide one organized location for discovering resources while directing users back to the people who created them.
-
-SantosCAD is affiliated with **[SantosMods.dev](https://santosmods.dev/)**.
+Our goal is simple: make it easier to find accurate resource information and reach the original creator or authorized source.
 
 ---
 
-<center>
+## Credits
 
-### <i class="fas fa-compass"></i> Find it. Review it. Use the original source.
+SantosDB is maintained as a FiveM resource information directory.
 
-**SantosCAD.org**
+SantosDB provides resource information and source references.
 
-</center>
+Third-party resource rights belong to their respective project authors and rights holders.
