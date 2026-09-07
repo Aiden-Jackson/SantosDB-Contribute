@@ -1,18 +1,18 @@
-# SantosCAD
+# SantosDB
 
-SantosCAD is a community resource directory for FiveM.
+SantosDB is a community resource directory for FiveM.
 
 Find scripts, EUP, vehicles, MLOs, YMAPs, props, weapons, tools, and other FiveM resources in one place.
 
-SantosCAD focuses on resource listings, source links, setup information, and known issues.
+SantosDB focuses on resource listings, source links, setup information, and known issues.
 
 ## Website
 
-https://santoscad.org
+https://santosdb.net
 
 ## What We List
 
-SantosCAD covers:
+SantosDB covers:
 
 * Scripts
 * EUP
@@ -62,7 +62,7 @@ We do not accept:
 
 ## Contribute
 
-SantosCAD accepts community contributions.
+SantosDB accepts community contributions.
 
 You may add a resource, fix a listing, update a link, or add a known issue.
 
@@ -132,7 +132,7 @@ Do not fill pages with large blocks of text.
 
 Do not copy full documentation from the resource creator.
 
-SantosCAD should explain the resource and send users to the source for full documentation.
+SantosDB should explain the resource and send users to the source for full documentation.
 
 ## Writing Rules
 
@@ -296,19 +296,19 @@ Add known issue for ox_inventory
 
 ## Resource Ownership
 
-SantosCAD does not own the resources listed on this site.
+SantosDB does not own the resources listed on this site.
 
 Each resource belongs to its creator or rights holder.
 
-SantosCAD provides information and links to source pages.
+SantosDB provides information and links to source pages.
 
-A listing does not mean SantosCAD owns, maintains, supports, or distributes a resource.
+A listing does not mean SantosDB owns, maintains, supports, or distributes a resource.
 
 ## Resource Owners
 
 If you own a listed resource, submit a pull request to update its page.
 
-Contact the SantosCAD team for:
+Contact the SantosDB team for:
 
 * Wrong ownership information
 * Broken source links
@@ -318,4 +318,4 @@ Contact the SantosCAD team for:
 
 ## Affiliation
 
-SantosCAD is affiliated with [SantosMods.dev](https://santosmods.dev/).
+SantosDB is affiliated with [SantosMods.dev](https://santosmods.dev/).
